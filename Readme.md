@@ -27,6 +27,6 @@ Assim, surge a ideia do Money Ctrl, um programa de controle financeiro, que ajud
 * Simula√ß√£o de investimento
 * Simula√ß√£o de empr√©stimo
 
-## Biblioteca Gr·fica
+### Biblioteca Gr·fica
 
 * O programa ir· utilizar Dear ImGUI como biblioteca gr·fica, uma vez que n„o necessita da instalaÁ„o de outros programas para rodar no Windows, o que ir· simplificar sua utilizaÁ„o.
