@@ -2,7 +2,7 @@
 
 ### Money Ctrl é um programa com o objetivo de auxiliar o controle financeiro no cotidiano.
 
-## Trabalho: PROPOSTAAAA DE PROJETO
+## Trabalho: PROPOSTA DE PROJETO
 ##### Al Henrique Barreto 20030 3° ANO COMUNICAÇÕES
 ##### Al Isabel Chaves de Freitas 20032 3° ANO ELÉTRICA
 
