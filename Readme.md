@@ -16,8 +16,7 @@ Assim, com a reativação da VSS, um programa de testes dos robôs se faz necessári
 
 ### Principais Funcionalidades
 
-* Teste de Comunicação
-* Teste de Motores
+* Teste de Controle de Motores
 * Teste de Encoders
 * Teste do Microcontrolador
 
