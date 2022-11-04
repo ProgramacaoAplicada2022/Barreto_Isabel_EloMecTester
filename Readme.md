@@ -1,6 +1,6 @@
 # ELO-MEC Tester da VSS
 
-### O Elo-Mec Tester é um programa criado para auxiliar os testes dos robos da vss da equipe Roboime.
+### O Elo-Mec Tester é um programa criado para auxiliar os testes dos robos da VSS da equipe RoboIME.
 
 ## Trabalho: PROPOSTA DE PROJETO
 ##### Al Henrique Barreto 20030 3° ANO COMUNICAÇÕES
@@ -22,16 +22,16 @@ Assim, com a reativação da VSS, um programa de testes dos robôs se faz necess
 
 ### Biblioteca Gráfica
 
-* O programa irá utilizar o LabView, para isso será necessário a intalação do aplicativo LabView e baixar o executável no Git quando estiver pronto. Para a RoboIME, a utilização do LabView não será um problema pois esse aplicativo ja está instalado nas máquinas que realizam a comunicação com os Robôs atualmente.
+* O programa irá utilizar o LabView, para isso será necessário a intalação do aplicativo LabVIEW e baixar o executável no Git quando estiver pronto. Para a RoboIME, a utilização do LabVIEW não será um problema pois esse aplicativo ja está instalado nas máquinas que realizam a comunicação com os Robôs atualmente.
 
 ### Esboço
 
-* Executável do LabView na qual os testes são realizados. 
+* Executável do LabVIEW na qual os testes são realizados. 
 
 ![interface_LabView](https://user-images.githubusercontent.com/82892691/200083499-a01c7bc8-06ca-43fe-9de7-760000f0d888.jpeg)
 
 * Para o projeto faremos o código do firmware do robô, que será escrito utilizando a interface STM32CubeIDE1.10.1
-* Faremos também a lógica da interface de testes utilizando o LabView.
+* Faremos também a lógica da interface de testes utilizando o LabVIEW.
 * Para a realização dos testes, o Firmware deve ser passado para o microcontrolador e o robô deve ser conectado ao computador, selecionando a Porta de COM correta. 
 * Devido à facilidade da parte física eletrônica e mecânica dos robôs da SSL já estarem prontas, o firmware e os testes serão feito utilizando os Robôs da SSL e o microcontrolador STM32F407. Para os robôs da VSS, o código deverá ser adaptado para utilizar a BluePill e será necessário utilizar o STlink para passar o firmware. Porém a interface do LabView funcionará em ambos os robôs.
 * Para "rodar" a interface, deve-se selecionar a seta branca no canto superior esquerdo da tela.
