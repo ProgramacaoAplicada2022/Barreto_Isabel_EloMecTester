@@ -33,9 +33,9 @@ Assim, com a reativação da VSS, um programa de testes dos robôs se faz necess
 * Para o projeto faremos o código do firmware do robô, que será escrito utilizando a interface STM32CubeIDE1.10.1
 * Faremos também a lógica da interface de testes utilizando o LabView.
 * Para a realização dos testes, o Firmware deve ser passado para o microcontrolador e o robô deve ser conectado ao computador, selecionando a Porta de COM correta. 
-* Devido à facilidade da parte física eletrônica e mecânica dos robôs da SSL já estarem prontas, o firmware e os testes serão feito utilizando os Robôs da SSL e o microcontrolador Discovery f407. Para os robôs da VSS, o código deverá ser adaptado para utilizar a BluePill e será necessário utilizar o STlink para passar o firmware. Porém a interface do LabView funcionará em ambos os robôs.
+* Devido à facilidade da parte física eletrônica e mecânica dos robôs da SSL já estarem prontas, o firmware e os testes serão feito utilizando os Robôs da SSL e o microcontrolador STM32F407. Para os robôs da VSS, o código deverá ser adaptado para utilizar a BluePill e será necessário utilizar o STlink para passar o firmware. Porém a interface do LabView funcionará em ambos os robôs.
 * Para "rodar" a interface, deve-se selecionar a seta branca no canto superior esquerdo da tela.
-* Caso o robô não esteja conectado ou a porta de COM selecionada seja a errada, o led indicando que o robô está conectado permanece apagado.
-* Nas abas de Duty Cycle será possível selecionar a velocidade a ser mandada para cada motor, a resposta do motor será obtida pela leitura do gráfico que indica o RPM dos motores. 
-* O botão de STOP pode ser utilizado para parar de enviar dados para os robôs.
-* O botão hexagonal vermelho, no canto superior esquerdo, para a comunicação da interface com o robô, ou seja, a interface para de "rodar".
+* Caso o robô não esteja conectado ou a Porta COM selecionada seja a errada, o led indicando que o robô está conectado permanece apagado.
+* Nos inputs de Duty Cycle será possível selecionar a velocidade a ser mandada para cada motor, a resposta do motor será obtida pela leitura do gráfico que indica o RPM dos motores. 
+* O botão de STOP para de enviar dados para o robô e chama as rotinas de finalização da comunicação e fechamento da Porta COM
+* O botão hexagonal vermelho, no canto superior esquerdo, o abort só interrompe a execução da VI imediatamente, sem executar rotinas de finalização, sendo útil para abortar a execução em caso de travamento ou erro.
