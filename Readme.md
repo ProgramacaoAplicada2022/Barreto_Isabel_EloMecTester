@@ -10,7 +10,7 @@ Esteja ciente do funcionamento dos motores,  encoders e comunicação dos robôs
 
 
 ### Motivação
-RoboIME é uma equipe de futebol de robôs autônomos do Laboratório de Robótica e Inteligencia Computacional formado por alunos de graduação em Engenharia de Computação, Engenharia Eletrônica e Engenharia Mecânica e alunos de mestrado e doutorado do Instituto Militar de Engenharia. A RoboIME participa de competições de nível nacional e internacional nas categorias Small Size League(SSL), Standard Education Kit (SEK), Very Small Soccer(VSS), Humanoid Robot Race(HRR) e Batalha.
+RoboIME é a equipe de robótica do IME, com robôs autônomos do Laboratório de Robótica e Inteligencia Computacional, formado por alunos de graduação em Engenharia de Computação, Engenharia Eletrônica e Engenharia Mecânica e alunos de mestrado e doutorado do Instituto Militar de Engenharia. A RoboIME participa de competições de nível nacional e internacional nas categorias Small Size League(SSL), Standard Education Kit (SEK), Very Small Soccer(VSS), Humanoid Robot Race(HRR) e Batalha.
 
 Assim, com a reativação da VSS, um programa de testes dos robôs se faz necessário.
 
