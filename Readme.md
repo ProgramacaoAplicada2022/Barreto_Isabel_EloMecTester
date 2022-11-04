@@ -37,5 +37,5 @@ Assim, com a reativação da VSS, um programa de testes dos robôs se faz necess
 * Para "rodar" a interface, deve-se selecionar a seta branca no canto superior esquerdo da tela.
 * Caso o robô não esteja conectado ou a Porta COM selecionada seja a errada, o led indicando que o robô está conectado permanece apagado.
 * Nos inputs de Duty Cycle será possível selecionar a velocidade a ser mandada para cada motor, a resposta do motor será obtida pela leitura do gráfico que indica o RPM dos motores. 
-* O botão de STOP para de enviar dados para o robô e chama as rotinas de finalização da comunicação e fechamento da Porta COM
+* O botão de STOP para de enviar dados para o robô e chama as rotinas de finalização da comunicação e fechamento da Porta COM.
 * O botão hexagonal vermelho, no canto superior esquerdo, o abort só interrompe a execução da VI imediatamente, sem executar rotinas de finalização, sendo útil para abortar a execução em caso de travamento ou erro.
