@@ -22,4 +22,4 @@ Assim, com a reativação da VSS, um programa de testes dos robôs se faz necess
 
 ### Biblioteca Gráfica
 
-* O programa irá utilizar o LabView, para isso será necessário a intalação do aplicativo LabView e baixar o executável no Git quando estiver pronto. Para a Roboime, a utilização do LabView não será um problema pois esse aplicativo ja está instalado nas máquinas que realizam a comunicação com os Robôs atualmente.
+* O programa irá utilizar o LabView, para isso será necessário a intalação do aplicativo LabView e baixar o executável no Git quando estiver pronto. Para a RoboIME, a utilização do LabView não será um problema pois esse aplicativo ja está instalado nas máquinas que realizam a comunicação com os Robôs atualmente.
