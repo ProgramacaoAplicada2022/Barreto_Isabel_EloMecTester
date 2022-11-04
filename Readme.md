@@ -1,18 +1,18 @@
 # ELO-MEC Tester da VSS
 
-### O Elo-Mec Tester é um programa criado para auxiliar os testes dos robos da vss da equipe Roboime.
+### O Elo-Mec Tester Ã© um programa criado para auxiliar os testes dos robos da vss da equipe Roboime.
 
 ## Trabalho: PROPOSTA DE PROJETO
-##### Al Henrique Barreto 20030 3Â° ANO COMUNICAÇÕES
-##### Al Isabel Chaves de Freitas 20032 3Â° ANO ELÉRTICA
+##### Al Henrique Barreto 20030 3Ã‚Â° ANO COMUNICAÃ‡Ã•ES
+##### Al Isabel Chaves de Freitas 20032 3Ã‚Â° ANO ELÃ‰RTICA
 
-Esteja ciente do funcionamento dos motores,  encoders e comunicação dos robôs da VSS, para a preparação de jogos
+Esteja ciente do funcionamento dos motores,  encoders e comunicaÃ§Ã£o dos robÃ´s da VSS e SSL, para a preparaÃ§Ã£o de jogos.
 
 
-### Motivação
-RoboIME é uma equipe de futebol de robôs autônomos do Laboratório de Robótica e Inteligencia Computacional formado por alunos de graduação em Engenharia de Computação, Engenharia Eletrônica e Engenharia Mecânica e alunos de mestrado e doutorado do Instituto Militar de Engenharia. A RoboIME participa de competições de nível nacional e internacional nas categorias Small Size League(SSL), Standard Education Kit (SEK) e Very Small Soccer(VSS).
+### MotivaÃ§Ã£o
+RoboIME Ã© uma equipe de futebol de robÃ´s autÃ´nomos do LaboratÃ³rio de RobÃ³tica e Inteligencia Computacional formado por alunos de graduaÃ§Ã£o em Engenharia de ComputaÃ§Ã£o, Engenharia EletrÃ´nica e Engenharia MecÃ¢nica e alunos de mestrado e doutorado do Instituto Militar de Engenharia. A RoboIME participa de competiÃ§Ãµes de nÃ­vel nacional e internacional nas categorias Small Size League(SSL), Standard Education Kit (SEK) e Very Small Soccer(VSS).
 
-Assim, com a reativação da VSS, um programa de testes dos robôs se faz necessário.
+Assim, com a reativaÃ§Ã£o da VSS, um programa de testes dos robÃ´s se faz necessÃ¡rio.
 
 ### Principais Funcionalidades
 
@@ -20,6 +20,6 @@ Assim, com a reativação da VSS, um programa de testes dos robôs se faz necessári
 * Teste de Encoders
 * Teste do Microcontrolador
 
-### Biblioteca Gráfica
+### Biblioteca GrÃ¡fica
 
-* O programa irá utilizar o LabView, para isso será necessário a intalação do aplicativo LabView, o que não será um problema pois esse aplicativo ja está instalado nas máquinas que realizam a comunicação com os Robôs atualmente.
+* O programa irÃ¡ utilizar o LabView, para isso serÃ¡ necessÃ¡rio a intalaÃ§Ã£o do aplicativo LabView e baixar o executÃ¡vel no Git quando estiver pronto. Para a Roboime, a utilizaÃ§Ã£o do LabView nÃ£o serÃ¡ um problema pois esse aplicativo ja estÃ¡ instalado nas mÃ¡quinas que realizam a comunicaÃ§Ã£o com os RobÃ´s atualmente.
