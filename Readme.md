@@ -1,32 +1,26 @@
-# Money Ctrl
+# ELO-MEC Tester da VSS
 
-### Money Ctrl Ã© um programa com o objetivo de auxiliar o controle financeiro no cotidiano.
+### O Elo-Mec Tester é um programa criado para auxiliar os testes dos robos da vss da equipe Roboime.
 
 ## Trabalho: PROPOSTA DE PROJETO
-##### Al Henrique Barreto 20030 3Â° ANO COMUNICAÃ‡Ã•ES
-##### Al Isabel Chaves de Freitas 20032 3Â° ANO ELÃ‰TRICA
+##### Al Henrique Barreto 20030 3Â° ANO COMUNICAÇÕES
+##### Al Isabel Chaves de Freitas 20032 3Â° ANO ELÉRTICA
 
-Esteja no controle da sua vida financeira,  saiba os seus gastos, planeje seus sonhos e alcance seus objetivos e metas mais rapidamente, sejam eles voltados para estudo, trabalho ou algum projeto pessoal.
+Esteja ciente do funcionamento dos motores,  encoders e comunicação dos robôs da VSS, para a preparação de jogos
 
 
-### MotivaÃ§Ã£o
-Segundo o economista da Serasa Experian Luiz Rabi, o paÃ­s alcanÃ§ou o maior nÃºmero de inadimplentes desde 2016, sendo a faixa etÃ¡ria de 18 a 25 anos a que mais cresceu em inadimplÃªncia. Tendo em vista esse cenÃ¡rio em conjunto com a instabilidade do paÃ­s com variaÃ§Ãµes na inflaÃ§Ã£o, altas taxas de juros e nÃ­veis altos de desemprego, faz-se necessÃ¡rio um maior controle financeiro para diminuir os riscos de inadimplÃªncia e nÃ£o passar necessidade.
+### Motivação
+RoboIME é uma equipe de futebol de robôs autônomos do Laboratório de Robótica e Inteligencia Computacional formado por alunos de graduação em Engenharia de Computação, Engenharia Eletrônica e Engenharia Mecânica e alunos de mestrado e doutorado do Instituto Militar de Engenharia. A RoboIME participa de competições de nível nacional e internacional nas categorias Small Size League(SSL), Standard Education Kit (SEK) e Very Small Soccer(VSS).
 
-Assim, surge a ideia do Money Ctrl, um programa de controle financeiro, que ajuda o usuÃ¡rio a acompanhar seus gastos, suas metas e seus investimentos.
+Assim, com a reativação da VSS, um programa de testes dos robôs se faz necessário.
 
 ### Principais Funcionalidades
 
-* Cadastrar
-* Logar
-* Verificar saldo
-* Verificar extrato
-* Criar gasto 
-* Criar receita gerada
-* Criar meta
-* Estipular tempo para atingir a meta
-* SimulaÃ§Ã£o de investimento
-* SimulaÃ§Ã£o de emprÃ©stimo
+* Teste de Comunicação
+* Teste de Motores
+* Teste de Encoders
+* Teste do Microcontrolador
 
 ### Biblioteca Gráfica
 
-* O programa irá utilizar Dear ImGUI como biblioteca gráfica, uma vez que não necessita da instalação de outros programas para rodar no Windows, o que irá simplificar sua utilização.
+* O programa irá utilizar o LabView, para isso será necessário a intalação do aplicativo LabView, o que não será um problema pois esse aplicativo ja está instalado nas máquinas que realizam a comunicação com os Robôs atualmente.
