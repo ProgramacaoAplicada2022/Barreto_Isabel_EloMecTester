@@ -4,7 +4,7 @@
 
 ## Trabalho: PROPOSTA DE PROJETO
 ##### Al Henrique Barreto 20030 3° ANO COMUNICAÇÕES
-##### Al Isabel Chaves de Freitas 20032 3° ANO ELÉRTICA
+##### Al Isabel Chaves de Freitas 20032 3° ANO ELÉTRICA
 
 Esteja ciente do funcionamento dos motores,  encoders e comunicação dos robôs da VSS e SSL, para a preparação de jogos.
 
