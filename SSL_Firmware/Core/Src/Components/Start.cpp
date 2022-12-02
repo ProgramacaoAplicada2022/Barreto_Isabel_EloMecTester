@@ -66,7 +66,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 			nRF_Feedback_Packet.packetId++;
 			radio.UploadAckPayload((uint8_t*)&nRF_Feedback_Packet, sizeof(nRF_Feedback_Packet));
-			if(radio.getReceivedPayload((uint8_t*)nRF_Send_Packet)){
+//			if(radio.getReceivedPayload((uint8_t*)nRF_Send_Packet)){
+			if(true){
 				HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
 				HAL_GPIO_WritePin(LD6_GPIO_Port, LD6_Pin, GPIO_PIN_SET);
 				commCounter = 0;
