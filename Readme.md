@@ -28,7 +28,7 @@ Assim, com a reativação da VSS, um programa de testes dos robôs se faz necess
 
 * Executável do LabVIEW na qual os testes são realizados. 
 
-![interface_LabView](https://user-images.githubusercontent.com/82892691/200083499-a01c7bc8-06ca-43fe-9de7-760000f0d888.jpeg)
+![interface_LabView](https://github.com/ProgramacaoAplicada2022/Barreto_Isabel_EloMecTester/raw/main/Interface_grafica_funcional.jpeg)
 
 * Para o projeto faremos o código do firmware do robô, que será escrito utilizando a interface STM32CubeIDE1.10.1
 * Faremos também a lógica da interface de testes utilizando o LabVIEW.
