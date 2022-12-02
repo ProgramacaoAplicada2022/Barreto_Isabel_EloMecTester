@@ -17,6 +17,11 @@ public:
 	float velnormal;
 	float velangular;
 	bool spinner;
+	bool wheelsspeed;
+	float wheel1;
+	float wheel2;
+	float wheel3;
+	float wheel4;
 	uint8_t packetId = 0;
 };
 class nRF_Feedback_Packet_t{

@@ -3,6 +3,8 @@
  *
  *  Created on: 20 de mar de 2021
  *      Author: Moraes
+ *  Edited on: 26/11/2022
+ *  	Author: Isabel Chaves
  */
 
 #include "Start.hpp"
@@ -13,7 +15,7 @@
 #include "Motor.hpp"
 #include "Robo.hpp"
 #include "CommunicationUSB.hpp"
-#include "BTS7960B.hpp"
+
 #include "RoboIME_RF24.hpp"
 #include "SerialDebug.hpp"
 #include "CommunicationNRF.hpp"
@@ -54,8 +56,6 @@ char serialBuf[64];
 //Objects
 Robo robo(1);
 CommunicationUSB usb(&usbRecvCallback);
-//BTS7960B motorbts(&(TIM10->CCR1), &(TIM11->CCR1), GPIOD, GPIO_PIN_0, GPIOD, GPIO_PIN_1);
-//Motor motor[4] = {Motor(0), Motor(1), Motor(2), Motor(3)};
 RoboIME_RF24 radio(nRF_CSn_GPIO_Port, nRF_CSn_Pin, nRF_CE_GPIO_Port, nRF_CE_Pin, nRF_IRQ_GPIO_Port, nRF_IRQ_Pin, &hspi1);
 SerialDebug debug(&huart3);
 
@@ -65,21 +65,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		if(!transmitter && radio.ready){
 			HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 			nRF_Feedback_Packet.packetId++;
-			nRF_Feedback_Packet.battery = robo.calc_vbat();
-			if(robo.hasBall()){
-				nRF_Feedback_Packet.status |= 1<<0;		//Set bit 0
-			}else{
-				nRF_Feedback_Packet.status &= ~(1<<0);	//Reset bit 0
-			}
-			if(robo.R_Kick->kickCharged){
-				nRF_Feedback_Packet.status |= 1<<1;
-			}else{
-				nRF_Feedback_Packet.status &= ~(1<<1);
-			}
 			radio.UploadAckPayload((uint8_t*)&nRF_Feedback_Packet, sizeof(nRF_Feedback_Packet));
 			if(radio.getReceivedPayload((uint8_t*)nRF_Send_Packet)){
-				/*sprintf(serialBuf, "Vt %lf", nRF_Send_Packet[0].veltangent);
-				debug.debug(serialBuf);*/
 				HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
 				HAL_GPIO_WritePin(LD6_GPIO_Port, LD6_Pin, GPIO_PIN_SET);
 				commCounter = 0;
@@ -87,46 +74,19 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				commCounter++;
 			}
 			if(commCounter < 100){	//Verifica se recebeu pacote no último 1s
-				robo.set_robo_speed(nRF_Send_Packet[0].velnormal, nRF_Send_Packet[0].veltangent, nRF_Send_Packet[0].velangular);
-				robo.set_kick(nRF_Send_Packet[0].kickspeedx,nRF_Send_Packet[0].kickspeedz);
-				robo.set_dribble(nRF_Send_Packet[0].spinner);
+				if(nRF_Send_Packet[0].wheelsspeed){
+					robo.set_wheel_speed(nRF_Send_Packet[0].wheel1, nRF_Send_Packet[0].wheel2, nRF_Send_Packet[0].wheel3, nRF_Send_Packet[0].wheel4);
+
+				}
+				else{
+					robo.set_robo_speed(nRF_Send_Packet[0].velnormal, nRF_Send_Packet[0].veltangent, nRF_Send_Packet[0].velangular);
+				}
 			}else{
 				//Perdeu a comunicação
 				robo.set_robo_speed(0, 0, 0);
-				robo.set_kick(0, 0);
-				robo.set_dribble(false);
 				HAL_GPIO_WritePin(LD6_GPIO_Port, LD6_Pin, GPIO_PIN_RESET);
 				commCounter = 100;
 			}
-		}
-	}
-	else if(htim == robo.R_Kick->KICK_C_TIM)
-	{
-		if(HAL_GPIO_ReadPin(robo.R_Kick->KICK_C_GPIO_Port, robo.R_Kick->KICK_C_Pin) == GPIO_PIN_SET){
-			HAL_GPIO_WritePin(robo.R_Kick->KICK_C_GPIO_Port, robo.R_Kick->KICK_C_Pin, GPIO_PIN_RESET);
-
-			robo.R_Kick->kickCharged = GPIO_PIN_SET;
-
-			__HAL_TIM_SET_COUNTER(robo.R_Kick->KICK_RC_TIM,0);
-		}
-	}
-	else if(htim == robo.R_Kick->KICK_HL_TIM)
-	{
-		if(robo.R_Kick->kickEnable == GPIO_PIN_SET){
-			HAL_GPIO_WritePin(robo.R_Kick->KICK_H_GPIO_Port, robo.R_Kick->KICK_H_Pin, GPIO_PIN_RESET);
-
-			HAL_GPIO_WritePin(robo.R_Kick->KICK_L_GPIO_Port, robo.R_Kick->KICK_L_Pin,GPIO_PIN_RESET);
-
-			robo.R_Kick->kickEnable = GPIO_PIN_RESET;
-			robo.R_Kick->kickCharged = GPIO_PIN_RESET;
-
-			robo.R_Kick->Charge(5);
-		}
-	}
-	else if(htim == robo.R_Kick->KICK_RC_TIM)
-	{
-		if(robo.R_Kick->kickEnable == GPIO_PIN_RESET){
-			robo.R_Kick->Charge(1);
 		}
 	}
 }
@@ -139,12 +99,15 @@ void USBpacketReceivedCallback(void){
 		sprintf(debugmessage, "ID %lu", receivedPacket.id);
 		debug.debug(debugmessage);*/
 		usbCounter = 0;
-		nRF_Send_Packet[receivedPacket.id].kickspeedx = receivedPacket.kickspeedx;
-		nRF_Send_Packet[receivedPacket.id].kickspeedz = receivedPacket.kickspeedz;
 		nRF_Send_Packet[receivedPacket.id].veltangent = receivedPacket.veltangent;
 		nRF_Send_Packet[receivedPacket.id].velnormal = receivedPacket.velnormal;
 		nRF_Send_Packet[receivedPacket.id].velangular = receivedPacket.velangular;
-		nRF_Send_Packet[receivedPacket.id].spinner = receivedPacket.spinner;
+		nRF_Send_Packet[receivedPacket.id].wheelsspeed = receivedPacket.wheelsspeed;
+		nRF_Send_Packet[receivedPacket.id].wheel1 = receivedPacket.wheel1;
+		nRF_Send_Packet[receivedPacket.id].wheel2 = receivedPacket.wheel2;
+		nRF_Send_Packet[receivedPacket.id].wheel3 = receivedPacket.wheel3;
+		nRF_Send_Packet[receivedPacket.id].wheel4 = receivedPacket.wheel4;
+
 	}
 }
 
@@ -153,7 +116,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 		radio.extiCallback();
 	}
 }
-
 
 
 void Flash_Write(uint8_t data, uint32_t adress, uint32_t sector_num){
@@ -187,9 +149,6 @@ void Start(){
 	nRF_Send_Packet[0].velangular = 0;
 	nRF_Send_Packet[0].veltangent = 0;
 	nRF_Send_Packet[0].velnormal = 0;
-	nRF_Send_Packet[0].kickspeedx = 0;
-	nRF_Send_Packet[0].kickspeedz = 0;
-	nRF_Send_Packet[0].spinner = false;
 	for(uint32_t i=0; i<2000; i++){
 		HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, (GPIO_PinState)(id & 1));
 		HAL_GPIO_WritePin(LD4_GPIO_Port, LD4_Pin, (GPIO_PinState)((id>>1) & 1));
@@ -231,8 +190,6 @@ void Start(){
 	}
 	debug.info("ID = 6");
 	radio.ready = true;
-	robo.R_Kick->kickCharged = GPIO_PIN_RESET;
-	robo.R_Kick->Charge(5);
 	while(1){
 		if(transmitter){
 			for(uint8_t i=0; i<NUM_ROBOTS; i++){
@@ -246,9 +203,6 @@ void Start(){
 						nRF_Send_Packet[i].velangular = 0;
 						nRF_Send_Packet[i].veltangent = 0;
 						nRF_Send_Packet[i].velnormal = 0;
-						nRF_Send_Packet[i].kickspeedx = 0;
-						nRF_Send_Packet[i].kickspeedz = 0;
-						nRF_Send_Packet[i].spinner = false;
 					}
 					HAL_GPIO_WritePin(LD5_GPIO_Port, LD5_Pin, GPIO_PIN_SET);
 					usbCounter = 500;
@@ -262,8 +216,6 @@ void Start(){
 					HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
 					//debug.debug((char*)received);
 					USBD_CDC_HandleTypeDef *hcdc = (USBD_CDC_HandleTypeDef*)hUsbDeviceFS.pClassData;
-					//if (hcdc->TxState == 0 && hcdc->RxState == 0){
-						sendPacket[i].battery = nRF_FeedbackReceive_Packet[i].battery;
 						sendPacket[i].encoder1 = nRF_FeedbackReceive_Packet[i].encoder1;
 						sendPacket[i].encoder2 = nRF_FeedbackReceive_Packet[i].encoder2;
 						sendPacket[i].encoder3 = nRF_FeedbackReceive_Packet[i].encoder3;
@@ -271,14 +223,9 @@ void Start(){
 						sendPacket[i].status = nRF_FeedbackReceive_Packet[i].status;
 						sendPacket[i].id = nRF_FeedbackReceive_Packet[i].status>>28;
 						usb.TransmitFeedbackPacket(i, id);
-					//}
 				}
 			}
-			//debug.debug("sent");
 		}else{
-			//nRF_Feedback_Packet.status +=1;
-			//debug.debug((char*)received);
-			sendPacket[0].battery = nRF_Feedback_Packet.battery;
 			sendPacket[0].encoder1 = nRF_Feedback_Packet.encoder1;
 			sendPacket[0].encoder2 = nRF_Feedback_Packet.encoder2;
 			sendPacket[0].encoder3 = nRF_Feedback_Packet.encoder3;
