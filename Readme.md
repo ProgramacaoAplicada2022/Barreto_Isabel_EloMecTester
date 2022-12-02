@@ -59,3 +59,6 @@ Assim, com a reativação da VSS, um programa de testes dos robôs se faz necess
 
 Como o nosso projeto envolve um hardware, colocaremos no repositório um vídeo do projeto funcionando e poderemos apresentar para a turma em um momento posterior oportuno.
 
+Drive com um vídeo demonstrativo do projeto.
+https://drive.google.com/drive/folders/1F5Tl0wkqKXsj115eBuD408wmhu4uxj2w?usp=sharing
+
